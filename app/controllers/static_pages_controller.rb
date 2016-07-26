@@ -4,7 +4,4 @@ class StaticPagesController < ApplicationController
 
   def about
   end
-
-  def register
-  end
 end

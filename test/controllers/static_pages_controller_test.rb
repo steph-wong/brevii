@@ -11,9 +11,4 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get register" do
-    get static_pages_register_url
-    assert_response :success
-  end
-
 end
