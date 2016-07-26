@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :email
       t.string :username
       t.string :password
-      t.string :confirm_password
+      t.string :password_confirmation
 
       t.timestamps
     end
