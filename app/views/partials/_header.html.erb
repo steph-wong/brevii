@@ -1,0 +1,59 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <%= link_to "Project", home_path, class:"navbar-brand" %>
+        </div>
+
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="<%= btn_active('/home') %>">
+                    <%= link_to "Home", home_path %>
+                </li>
+                <li>
+                <li class="<%= btn_active('/about') %>">
+                    <%= link_to "About", about_path %>
+                </li>
+                <li>
+                <li class="<%= btn_active('/movie') %>">
+                    <%= link_to "Movies", movie_path %>
+                </li>
+
+                <% if logged_in? %>
+
+                <% else %>
+                <li class="<%= btn_active('/register') %>">
+                    <%= link_to "Register", register_path %>
+                </li>
+                <% end %>
+              </ul>
+
+            <div class="nav navbar-right">
+              <ul class="nav navbar-nav">
+                <% if logged_in? %>
+                <li class="<%= btn_active('/user') %>">
+                    <%= link_to "My Account", current_user %>
+                </li>
+                <li class="<%= btn_active('/logout') %>">
+                  <%= link_to "Log out", logout_path, method: "delete" %>
+              </li>
+              </ul>
+
+                <% else %>
+
+                <%= bootstrap_form_for(:session, url: login_path, layout: :inline) do |f| %>
+                <%= f.email_field :email, hide_label: true, placeholder: 'Email' %>
+                <%= f.password_field :password, hide_label: true, placeholder: 'Password' %>
+                <%= f.submit "Login", class:"btn btn-success"%>
+                <% end %>
+
+                <% end %>
+
+            </div>
+        </nav>
