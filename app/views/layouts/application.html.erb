@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Project | <%= yield(:title) %></title>
+        <title>Project |
+            <%= yield(:title) %></title>
         <%= csrf_meta_tags %>
 
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -26,41 +27,53 @@
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
                             <li class="<%= btn_active('/home') %>">
-                            <%= link_to "Home", home_path %>
+                                <%= link_to "Home", home_path %>
                             </li>
                             <li>
-                              <li class="<%= btn_active('/about') %>">
-                              <%= link_to "About", about_path %>
+                            <li class="<%= btn_active('/about') %>">
+                                <%= link_to "About", about_path %>
                             </li>
                             <li>
-                              <li class="<%= btn_active('/register') %>">
-                              <%= link_to "Register", register_path %>
+                            <li class="<%= btn_active('/register') %>">
+                                <%= link_to "Register", register_path %>
                             </li>
-                        </ul>
+                          </ul>
 
-                        <div class="nav navbar-form navbar-right">
+                        <div class="nav navbar-right">
+                          <ul class="nav navbar-nav">
+                            <% if logged_in? %>
+                            <li class="<%= btn_active('/user') %>">
+                                <%= link_to "My Account", current_user %>
+                            </li>
+                          </ul>
 
-                          <%= bootstrap_form_for(:session, url: login_path, layout: :inline) do |f| %>
+                            <% else %>
+
+                            <%= bootstrap_form_for(:session, url: login_path, layout: :inline) do |f| %>
                             <%= f.email_field :email, hide_label: true, placeholder: 'Email' %>
                             <%= f.password_field :password, hide_label: true, placeholder: 'Password' %>
                             <%= f.submit "Login", class:"btn btn-success"%>
-                          <% end %>
+                            <% end %>
 
+                            <% end %>
+
+                        </div>
+                    </nav>
+
+                    <h3 class="text-muted"> - </h3>
+
+                    <div class="jumbotron">
+                        <p>
+                            <%= yield %>
+                        </p>
                     </div>
-                </nav>
 
-                <h3 class="text-muted">Project name</h3>
-
-                <div class="jumbotron">
-                    <p> <%= yield %> </p>
+                    <footer class="footer">
+                        <p>© lorem 2016</p>
+                    </footer>
                 </div>
 
-                <footer class="footer">
-                    <p>© lorem 2016</p>
-                </footer>
             </div>
 
-        </div>
-
-    </body>
-</html>
+        </body>
+    </html>
