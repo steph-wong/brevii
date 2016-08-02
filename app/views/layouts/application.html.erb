@@ -39,16 +39,13 @@
                         </ul>
 
                         <div class="nav navbar-form navbar-right">
-                            <div class="form-group">
-                                <%= form_for(:session, url: login_path) do |f| %>
-                                <%= f.email_field :email, placeholder: 'email', class: 'form-control' %>
-                            </div>
-                            <div class="form-group">
-                                <%= f.password_field :password, placeholder: 'Password', class: 'form-control' %>
-                            </div>
-                            <button type="submit" class="btn btn-success">Sign in</button>
-                            <% end %>
-                        </div>
+
+                          <%= bootstrap_form_for(:session, url: login_path, layout: :inline) do |f| %>
+                            <%= f.email_field :email, hide_label: true, placeholder: 'Email' %>
+                            <%= f.password_field :password, hide_label: true, placeholder: 'Password' %>
+                            <%= f.submit "Login", class:"btn btn-success"%>
+                          <% end %>
+
                     </div>
                 </nav>
 
