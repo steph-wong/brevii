@@ -6,6 +6,7 @@ gem 'bcrypt',         '3.1.11'
 gem 'pry'
 
 gem 'bootstrap_form'
+gem 'enceladus', '~> 0.0.7'
 
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
