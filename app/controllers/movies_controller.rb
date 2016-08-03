@@ -11,7 +11,3 @@ class MoviesController < ApplicationController
   end
 
 end
-
-def self.find(id)
-  build_single_resource(Enceladus::Requester.get("movie/#{id}", default_params))
-end

@@ -1,5 +1,6 @@
 class User < ApplicationRecord
 before_save {email.downcase!}
+has_many :summaries, dependent: :destroy
 
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
@@ -27,5 +28,5 @@ before_save {email.downcase!}
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
-  
+
 end
