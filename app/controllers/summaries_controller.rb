@@ -12,10 +12,7 @@ class SummariesController < ApplicationController
 
   def create
     @movie = Enceladus::Movie.find(params[:id])
-    @summary = current_user.summaries.build(summary_params)
-    # @summary = @movie.summaries.build(summary_params)
-    # @summary.user = current_user
-    @summary.save
+    @summary = current_user.summaries.create(summary_params)
 
     if @summary.save
       flash[:success] = "Summary created!"
@@ -32,7 +29,7 @@ class SummariesController < ApplicationController
   private
 
     def summary_params
-      params.require(:summary).permit(:content, :spoiler)
+      params.require(:summary).permit(:content, :spoiler, :movie_id)
     end
 
 end
