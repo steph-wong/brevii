@@ -3,7 +3,8 @@ class CreateSummaries < ActiveRecord::Migration[5.0]
     create_table :summaries do |t|
       t.text :content
       t.references :user, foreign_key: true
-      t.integer :movie
+      t.references :movie, foreign_key: true
+      t.boolean :spoiler
 
       t.timestamps
     end

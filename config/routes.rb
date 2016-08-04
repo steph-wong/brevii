@@ -12,10 +12,17 @@ Rails.application.routes.draw do
   post   '/login',  to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  get 'movies' => 'movies#index'
-  get 'movies/:id', to: 'movies#show', as: 'movie'
+  post  'movies/:id/summaries/new' => 'summaries#create'
+
+  # get 'movies' => 'movies#index'
+  # get 'movies/:id', to: 'movies#show', as: 'movie'
 
   resources :users
-  resources :summaries, only: [:create, :destroy]
+  resources :summaries
+  resources :movies
+
+  resources :movies do
+    resources :summaries
+  end
 
 end
