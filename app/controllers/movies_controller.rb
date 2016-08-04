@@ -1,4 +1,4 @@
-class MoviesController < ApplicationController
+ class MoviesController < ApplicationController
 
   $popular_movies = Enceladus::Movie.popular
 
@@ -9,6 +9,7 @@ class MoviesController < ApplicationController
   def show
     @movie = Enceladus::Movie.find(params[:id])
     @summary = current_user.summaries.build if logged_in?
+    @sum_list = Summary.find_by(movie_id: @movie.id)
   end
 
 end
