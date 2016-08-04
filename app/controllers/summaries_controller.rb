@@ -12,14 +12,16 @@ class SummariesController < ApplicationController
 
   def create
     @movie = Enceladus::Movie.find(params[:id])
-    @summary = @movie.summaries.build(summary_params)
-    @summary.user = current_user
+    @summary = current_user.summaries.build(summary_params)
+    # @summary = @movie.summaries.build(summary_params)
+    # @summary.user = current_user
     @summary.save
 
     if @summary.save
       flash[:success] = "Summary created!"
       redirect_to movies_url
     else
+      flash[:danger] = "An error has occurred"
       redirect_to movies_url
     end
   end

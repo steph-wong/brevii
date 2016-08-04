@@ -14,18 +14,21 @@
 
     <body>
         <div class="container">
+            <%= render 'partials/header' %>
+            <div class="jumbotron">
 
-          <%= render 'partials/header' %>
+                <p>
+                  <% flash.each do |key, value| %>
+                  <div class="alert alert-<%= key %>"><%= value %></div>
+                  <% end %>
 
-                    <h3 class="text-muted"> - </h3>
-
-                    <div class="jumbotron">
-                        <p> <%= yield %> </p>
-                    </div>
-
-                    <%= render 'partials/footer' %>
-                </div>
+                    <%= yield %>
+                </p>
             </div>
 
-        </body>
-    </html>
+            <%= render 'partials/footer' %>
+        </div>
+    </div>
+
+</body>
+</html>
