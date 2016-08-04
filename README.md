@@ -1,24 +1,20 @@
-# README
+# Brevii
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Brevii is an interactive app in development where users post ten-word movie summaries.
 
-Things you may want to cover:
+### Approach Taken
 
-* Ruby version
+The app includes three basic models - user, movie and review - and is meant as a exercise in using API, namely The Movie Database (TMDb). 
 
-* System dependencies
+App is deployed on: https://ancient-eyrie-97187.herokuapp.com
 
-* Configuration
+### Tech Used
 
-* Database creation
+- Bootstrap
+- Bootstrap_form
+- Enceladus (Ruby wrapper for TMDb)
 
-* Database initialization
 
-* How to run the test suite
+### Unsolved Problems
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+-
