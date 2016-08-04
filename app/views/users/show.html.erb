@@ -1,15 +1,15 @@
 <% provide(:title, @user.name) %>
 
 <div class="row">
-  <aside class="col-md-4">
+  <aside class="col-md-6">
     <section class="user_info">
       <h1>
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
     </section>
-  </aside>
-</div>
+
+<br>
 
 <p>
   <strong>Name:</strong>
@@ -33,3 +33,17 @@
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+
+</aside>
+
+<div class="col-md-6">
+  <% if @user.summaries.any? %>
+    <h3>Summaries (<%= @user.summaries.count %>)</h3>
+    <ol class="reviews">
+      <%= render current_user.summaries %>
+    </ol>
+  <% else %>
+    <p>User has not posted any summaries.</p>
+  <% end %>
+</div>
+</div>

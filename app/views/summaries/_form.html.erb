@@ -1,0 +1,18 @@
+<%= form_for(@summary) do |f| %>
+
+<div class="row">
+    <aside class="col-md-5">
+        <section class="user_info">
+
+            <div class="field">
+              <%= f.text_area :content, :size=>"70", placeholder: "10-word Summary - Go!", :maxlength=>"100" %>
+              <%= f.hidden_field :movie_id, :value => :id %>
+            </div>
+            <div class="actions">
+                <%= f.submit "Post", class: "btn btn-primary" %>
+            </div>
+
+        </section>
+    </aside>
+</div>
+<% end %>

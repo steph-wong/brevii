@@ -1,0 +1,8 @@
+<li id="summary-<%= summary.id %>">
+  <%= link_to gravatar_for(summary.user, size: 50), summary.user %>
+  <span class="user"><%= link_to summary.user.name, summary.user %></span>
+  <span class="content"><%= summary.content %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(summary.created_at) %> ago.
+  </span>
+</li>

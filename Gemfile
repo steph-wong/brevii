@@ -5,6 +5,9 @@ gem 'bootstrap-sass', '3.3.6'
 gem 'bcrypt',         '3.1.11'
 gem 'pry'
 
+gem 'will_paginate',           '3.1.0'
+gem 'bootstrap-will_paginate', '0.0.10'
+
 gem 'bootstrap_form'
 gem 'enceladus', '~> 0.0.7'
 

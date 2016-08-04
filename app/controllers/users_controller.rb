@@ -11,7 +11,9 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
-  end
+    @user = User.find(params[:id])
+    @summaries = @user.summaries.paginate(page: params[:page])
+   end
 
   # GET /users/new
   def new
@@ -29,6 +31,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        log_in(@user)
         format.html { redirect_to @user, notice: 'User successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else

@@ -8,6 +8,7 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Enceladus::Movie.find(params[:id])
+    @summary = current_user.summaries.build if logged_in?
   end
 
 end

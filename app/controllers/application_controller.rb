@@ -5,5 +5,12 @@ class ApplicationController < ActionController::Base
   Enceladus.connect("69e30e21886db05709448feb3bf8715b", {
      include_image_language: "pt", language: "en", include_adult: false })
 
-
+     def logged_in_user
+        unless logged_in?
+          store_location
+          flash[:danger] = "Please log in."
+          redirect_to login_url
+        end
+      end
+      
 end
