@@ -1,23 +1,37 @@
 <% provide(:title, "Movies") %>
 
 <body>
-  <div class="row">
-      <div class="col-lg-12 text-center">
-          <h2 class="page-header"> Popular Movies</h2>
-      </div>
-      <% @movies.take(3).each do |movie| %>
-      <div class="col-md-4 text-center">
-        <div class="thumbnail">
-            <%= link_to(image_tag("http://image.tmdb.org/t/p/w300" << movie.poster_path, class: 'img-responsive'), movie_path(movie.id)) %>
-              <div class="caption">
-                  <h3> <%= movie.title %> <br> </h3>
-                  <ul class="list-inline">
-                      <li> <!-- #linklinklink --> </li>
-                  </ul>
-              </div>
-         </div>
-      </div>
-      <% end %>
+    <div class="row">
+        <div class="col-lg-12 text-center">
+
+            <div class="input-group search-input col-lg-5 col-md-2 col-md-offset-4">
+                <input type="text" class="form-control" ng-model="textFilter" placeholder="Search for a movie!">
+                <span class="input-group-btn">
+                    <button class="btn btn-info" type="button">Go!</button>
+                </span>
+            </div>
+            <hr>
+            <h2 class="page-header">
+                Popular Movies</h2>
+        </div>
+        <% @movies.take(3).each do |movie| %>
+        <div class="col-md-4 text-center">
+            <div class="thumbnail">
+                <%= link_to(image_tag("http://image.tmdb.org/t/p/w300" << movie.poster_path, class: 'img-responsive'), movie_path(movie.id)) %>
+                <div class="caption">
+                    <h3>
+                        <%= movie.title %>
+                        <br>
+                    </h3>
+                    <ul class="list-inline">
+                        <li>
+                            <!-- #linklinklink -->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <% end %>
     </div>
 
 </body>
