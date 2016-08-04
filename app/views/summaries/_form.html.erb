@@ -1,4 +1,4 @@
-<%= bootstrap_form_for(:summary, url: new_movie_summary_path(@movie.id), layout: :horizontal) do |f| %>
+<%= bootstrap_form_for(@summary, url: new_movie_summary_path(@movie.id), layout: :horizontal) do |f| %>
 <%= f.text_field :content, hide_label: true, placeholder: 'Write a summary' %>
 <%= f.hidden_field :movie_id, :value => :id %>
 <%= f.form_group :spoiler do %>
